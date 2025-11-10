@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Experiment Tracker - Chan Um</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">Chan_Um.Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../personal.html">Personal</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="project-hero">
+        <div class="container">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+            <div class="project-header">
+                <h1 class="project-title">Lab Experiment Tracker</h1>
+                <p class="project-tagline">Innovative web application to centralize and streamline lab data, moving beyond inefficient spreadsheets.</p>
+                <div class="project-header-tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">SQLAlchemy</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Tailwind CSS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="project-detail">
+            
+            <!-- Project Image/Video -->
+            <section class="project-image-section">
+                <img src="../images/lab-exp-tracker.png" alt="lab experiment tracker screenshot" class="project-main-image">
+            </section>
+
+            <!-- Problem Statement -->
+            <section class="project-section">
+                <h2 class="project-section-title">The Problem</h2>
+                <div class="project-section-content">
+                    <p>
+                        In many research environments, experimental data is scattered across multiple spreadsheets. This 'spreadsheet-based method' is often manual, error-prone, and makes it incredibly difficult to query, analyze, or collaborate on data effectively. I saw a need for a centralized, reliable system that researchers could trust.
+                </div>
+            </section>
+
+            <!-- My Solution -->
+            <section class="project-section">
+                <h2 class="project-section-title">My Solution</h2>
+                <div class="project-section-content">
+                    <p>
+                        To solve this, I designed and built the Lab Experiment Tracker, a full-stack web application. It provides a clean, simple web interface for researchers to log experiment parameters, upload results, and track progress. The entire system is backed by a robust database, ensuring data integrity and making analysis simple.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="project-section">
+                <h2 class="project-section-title">Key Features</h2>
+                <div class="project-features">
+                    <div class="feature-item">
+                        <h3>Writing new experiments</h3>
+                        <img src="../images/starting_new_exp.png" alt="Writing new experiments" class="project-feature-image" data-lightbox="true" data-title="Writing new experiments">
+                        <p>Create and initialize new experiments with an intuitive interface. Organize experiments by date, status, and project type for easy tracking and management.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Logging experimental data</h3>
+                        <img src="../images/updating_exp.png" alt="Logging experimental data" class="project-feature-image" data-lightbox="true" data-title="Logging experimental data">
+                        <p>Efficiently log and update experimental data in real-time. Track parameters, results, and observations with a clean, organized interface that replaces clunky spreadsheets.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Group membership</h3>
+                        <img src="../images/group_member.png" alt="Group membership" class="project-feature-image" data-lightbox="true" data-title="Group membership">
+                        <p>Share experiments with your lab members. Collaborate effectively by viewing team progress and sharing insights across your research lab.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>View member experiments</h3>
+                        <img src="../images/group_exps.png" alt="View member experiments" class="project-feature-image" data-lightbox="true" data-title="View member experiments">
+                        <p>Browse and filter experiments from all group members. Collaborate effectively by viewing team progress and sharing insights across your research lab.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack -->
+            <section class="project-section">
+                <h2 class="project-section-title">Tech Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-category">
+                        <h3>Backend</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">SQLAlchemy</span>
+                            <span class="tech-tag">Flask</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Frontend</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Database</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SQLAlchemy</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Deployment</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">GCP</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results/Impact -->
+            <section class="project-section">
+                <h2 class="project-section-title">Results & Impact</h2>
+                <div class="project-section-content">
+                    <p>
+                        The cancer cell classifier achieved impressive results during testing and validation. The model demonstrated 94.5% accuracy, 92.3% precision, and 96.1% recall on a held-out test set of medical images. This performance is comparable to experienced pathologists while being significantly faster.
+                    </p>
+                    <p>
+                        The system has the potential to significantly reduce the time required for cancer cell analysis, allowing healthcare professionals to focus on treatment planning and patient care. By automating the initial screening process, the classifier can help scale early detection programs and improve access to cancer screening in underserved areas.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Project Links -->
+            <section class="project-links-section">
+                <h2 class="project-section-title">Project Links</h2>
+                <div class="project-external-links">
+                    <p>Project is still in development. Please check back soon for updates.</p>
+                    <!-- <a href="https://github.com/yourusername/cancer-cell-classifier" class="btn" target="_blank" rel="noopener noreferrer">
+                        View on GitHub
+                    </a>
+                    <a href="#" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                        Live Demo
+                    </a>
+                    <a href="#" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                        Research Paper
+                    </a> -->
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <!-- Image Lightbox Modal -->
+    <div id="image-lightbox" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content-wrapper">
+            <div class="lightbox-title" id="lightbox-title"></div>
+            <img class="lightbox-content" id="lightbox-image" alt="Lightbox image">
+            <div class="lightbox-description" id="lightbox-description"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Chan Um. Built with HTML, CSS, and JS.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../script-lightbox.js"></script>
+</body>
+</html>
+
