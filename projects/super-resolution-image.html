@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NLP Sentiment Analyzer - Chan Um</title>
+    <title>Super-Resolution Image Upscaler - Chan Um</title>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
 </head>
 <body>
 
@@ -26,14 +30,13 @@
         <div class="container">
             <a href="../index.html#projects" class="back-link">← Back to Projects</a>
             <div class="project-header">
-                <h1 class="project-title">NLP Sentiment Analyzer</h1>
-                <p class="project-tagline">A real-time sentiment analysis web application that processes social media feeds using advanced LSTM neural networks</p>
+                <h1 class="project-title">Super-Resolution Image Upscaler</h1>
+                <p class="project-tagline">An application of image restoration by building a Super-Resolution Residual Network (SRResNet) using PyTorch.</p>
                 <div class="project-header-tags">
-                    <span class="tag">NLP</span>
-                    <span class="tag">TensorFlow</span>
-                    <span class="tag">Flask</span>
-                    <span class="tag">LSTM</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">PyTorch</span>
                     <span class="tag">Python</span>
+                    <span class="tag">Image Restoration</span>
                 </div>
             </div>
         </div>
@@ -47,9 +50,9 @@
                 <img src="https://via.placeholder.com/1200x600.png?text=NLP+Sentiment+Analyzer+Demo" alt="NLP Sentiment Analyzer Project Image" class="project-main-image">
             </section>
 
-            <!-- Problem Statement -->
+            <!-- Results -->
             <section class="project-section">
-                <h2 class="project-section-title">The Problem</h2>
+                <h2 class="project-section-title">Results</h2>
                 <div class="project-section-content">
                     <p>
                         Businesses and organizations need to understand public sentiment about their products, services, or brand in real-time. With millions of social media posts, reviews, and comments generated daily, manually analyzing this data is impossible. Companies struggle to gauge customer satisfaction, track brand reputation, and respond to emerging trends quickly.
@@ -60,49 +63,74 @@
                 </div>
             </section>
 
-            <!-- My Solution -->
+            <!-- Model Architecture -->
             <section class="project-section">
-                <h2 class="project-section-title">My Solution</h2>
+                <h2 class="project-section-title">Model Architecture</h2>
                 <div class="project-section-content">
-                    <p>
-                        I developed an advanced NLP sentiment analyzer using LSTM (Long Short-Term Memory) neural networks that can process and classify sentiment from social media feeds in real-time. The system uses TensorFlow/Keras to build a deep learning model that understands context, nuance, and subtle linguistic patterns.
-                    </p>
-                    <p>
-                        The application features a Flask-based web interface that allows users to input text, upload files, or connect to social media APIs for real-time sentiment analysis. The model was trained on a large corpus of labeled social media data, including tweets, reviews, and comments, achieving high accuracy across different types of content.
-                    </p>
-                    <p>
-                        The system provides not only sentiment classification (positive, negative, neutral) but also confidence scores and emotional intensity metrics. It can handle various languages and includes preprocessing steps to handle noise, emojis, and informal language common in social media.
-                    </p>
+                    <ul class="architecture-list">
+                        <li>
+                            <span class="architecture-title">Initial Feature Extraction:</span>
+                            <span class="architecture-description">a single convolutional layer reads the input image and extracts its initial low-level features.</span>
+                        </li>
+                        <li>
+                            <span class="architecture-title">Deep Feature Learning:</span>
+                            <span class="architecture-description">A series of 8 residual blocks. Using residual connections enhance the performance, as it allows the network to go very deep to learn complex features without suffering from the vanishing gradient problem.</span>
+                        </li>
+                        <li>
+                            <span class="architecture-title">Efficient Upsampling:</span>
+                            <span class="architecture-description">Instead of using a traditional transposed convolution, nn.PixelShuffle layer was used. This layer first increases the number of channels and then intelligently shuffles them into the spatial dimensions, resulting in a clean, high-quality upscale.</span>
+                        </li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- Key Features -->
+            <!-- Training Process -->
             <section class="project-section">
-                <h2 class="project-section-title">Key Features</h2>
-                <div class="project-features">
-                    <div class="feature-item">
-                        <h3>Real-Time Processing</h3>
-                        <p>Analyzes sentiment from live social media feeds with minimal latency.</p>
+                <h2 class="project-section-title">Training Process</h2>
+                
+                <!-- Scoring Function Comparison Image -->
+                <div class="training-image-section">
+                    <img src="../images/training_curves_comparison.png" alt="Training Curves Comparison" class="training-comparison-image">
+                    <p class="image-caption">Comparison between L1 Loss and MSE Loss for super-resolution training</p>
+                    <img src="../images/training_curves_combined.png" alt="Training Curves Combined" class="training-comparison-image">
+                    <p class="image-caption">Combined training curves for L1 Loss and MSE Loss</p>
+                </div>
+
+                <!-- Training Reasoning Discussion -->
+                <div class="training-discussion">
+                    <h3 class="discussion-title">Choice of Loss Function</h3>
+                    <div class="discussion-content">
+                        <p>
+                            While MSE Loss is a popular choice, it heavily penalizes large errors, which often causes the model to produce safe, over-smoothed, and blurry images.
+                        </p>
+                        <p>
+                            L1 Loss is less sensitive to outliers and encourages the model to preserve sharper details and more realistic textures, which is exactly what a super-resolution is tasked. As the training graphs show, both losses are tracked by comparing their behavior.             </p>
+                        <p>
+                            Additionally, the selected scoring function demonstrates better convergence properties during training, leading to more stable gradients and faster training times. This was crucial for training the deep residual network effectively while maintaining high-quality output.
+                        </p>
                     </div>
-                    <div class="feature-item">
-                        <h3>High Accuracy</h3>
-                        <p>Achieves 89.2% accuracy on sentiment classification tasks.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>LSTM Architecture</h3>
-                        <p>Uses advanced LSTM networks to understand context and long-range dependencies.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Multi-Format Input</h3>
-                        <p>Supports text input, file uploads, and API integrations.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Visualization Dashboard</h3>
-                        <p>Provides interactive charts and graphs for sentiment trends over time.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Batch Processing</h3>
-                        <p>Can process thousands of texts simultaneously for large-scale analysis.</p>
+                </div>
+
+                <!-- Training Details (Optional - can be removed or modified) -->
+                <div class="training-details">
+                    <h3 class="details-title">Training Configuration</h3>
+                    <div class="project-features">
+                        <div class="feature-item">
+                            <h3>Dataset</h3>
+                            <p>Trained on a large dataset of high-resolution images with various downsampling factors.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Optimizer</h3>
+                            <p>Used Adam optimizer with learning rate scheduling for stable convergence.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Batch Size</h3>
+                            <p>Optimized batch size for memory efficiency while maintaining training stability.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Training Epochs</h3>
+                            <p>Trained for multiple epochs with early stopping to prevent overfitting.</p>
+                        </div>
                     </div>
                 </div>
             </section>

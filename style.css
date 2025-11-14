@@ -677,6 +677,95 @@ ul {
     object-fit: cover;
 }
 
+/* Training Process Image Section */
+.training-image-section {
+    margin-bottom: 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    background: var(--surface-color);
+    padding: 1.5rem;
+}
+
+.training-comparison-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: var(--bg-color);
+    padding: 1rem;
+}
+
+.image-caption {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid #333;
+}
+
+/* Training Discussion Section */
+.training-discussion {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--surface-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.discussion-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-code);
+}
+
+.discussion-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.discussion-content p {
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+}
+
+.discussion-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Training Details Section */
+.training-details {
+    margin-top: 3rem;
+}
+
+.details-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.details-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
 .project-section {
     margin-bottom: 4rem;
 }
@@ -708,6 +797,45 @@ ul {
 .project-section-content p {
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
+}
+
+/* Architecture List Styling */
+.architecture-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.architecture-list li {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--surface-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.architecture-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(187, 134, 252, 0.2);
+}
+
+.architecture-title {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-code);
+    letter-spacing: 0.5px;
+}
+
+.architecture-description {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-top: 0.5rem;
 }
 
 .project-features {
@@ -1095,6 +1223,56 @@ footer {
         font-size: 1rem;
         padding: 1rem 1.5rem;
         margin-top: 1rem;
+    }
+
+    /* Architecture List Responsive */
+    .architecture-list li {
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .architecture-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .architecture-description {
+        font-size: 1rem;
+    }
+
+    /* Training Process Responsive */
+    .training-image-section {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .training-comparison-image {
+        padding: 0.5rem;
+    }
+
+    .image-caption {
+        font-size: 0.85rem;
+        padding-top: 0.75rem;
+    }
+
+    .training-discussion {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .discussion-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .discussion-content p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .details-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
     /* Adjust distortion layers for mobile */
