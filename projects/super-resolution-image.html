@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super-Resolution Image Upscaler - Chan Um</title>
+    <title>Super-Resolution Image Upscaler | Chan Um</title>
+    <meta name="description" content="An SRResNet built from scratch in PyTorch, comparing L1 and MSE training objectives for 2x image super-resolution.">
+    <meta name="theme-color" content="#0a0c11">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
@@ -13,270 +17,127 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="../index.html" class="nav-logo">Chan_Um.Portfolio</a>
-            <ul class="nav-menu">
+    <nav class="nav">
+        <div class="wrap">
+            <a href="../index.html" class="nav-name">Chan Um</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="../index.html#research">Research</a></li>
+                <li><a href="../index.html#projects" class="active">Projects</a></li>
                 <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#skills">Skills</a></li>
-                <li><a href="../index.html#projects">Projects</a></li>
-                <li><a href="../index.html#education">Education</a></li>
                 <li><a href="../personal.html">Personal</a></li>
+                <li><a href="../resume.html">CV</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="project-hero">
-        <div class="container">
-            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
-            <div class="project-header">
-                <h1 class="project-title">Super-Resolution Image Upscaler</h1>
-                <p class="project-tagline">An application of image restoration by building a Super-Resolution Residual Network (SRResNet) using PyTorch.</p>
-                <div class="project-header-tags">
-                    <span class="tag">Deep Learning</span>
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">Image Restoration</span>
-                </div>
+    <header class="page-hero">
+        <canvas class="sky" data-density="9000" aria-hidden="true"></canvas>
+        <div class="wrap">
+            <a href="../index.html#projects" class="back-link">&larr; ALL PROJECTS</a>
+            <span class="label">P-04 &middot; Oct 2025</span>
+            <h1>Super-Resolution Image Upscaler</h1>
+            <p class="sub">Image restoration with a Super-Resolution Residual Network (SRResNet) built from scratch in PyTorch, and a comparison of what L1 and MSE training actually optimize for.</p>
+            <div class="tags" style="margin-top:28px">
+                <span>PyTorch</span><span>Deep Learning</span><span>Image Restoration</span><span>Python</span>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <article class="project-detail">
-            
-            <!-- Project Image/Video -->
-            <section class="project-image-section">
-                <img src="../images/dog.jpg" alt="Dog super-resolution comparison" class="project-main-image">
-                <img src="../images/tigers.jpg" alt="Tiger super-resolution comparison" class="project-main-image">
-                <p class="image-caption">From left to right: Low-resolution, L1 loss, MSE loss, and Ground truth image</p>
-            </section>
+    <main class="article">
 
-            <!-- Results -->
-            <section class="project-section">
-                <h2 class="project-section-title">Results</h2>
-                <div class="project-section-content">
-                    <img src="../images/psnr_ssim_comparison.png" alt="PSNR and SSIM comparison" class="project-main-image">
-                    <br>
-                    <p>
-                        In order to evaluate the models, two main metrics were used: PSNR, which measures pixel-perfect mathematical accuracy, and SSIM, which measures perceived structural similarity (how a human views)
-                    </p>
-                    <p>
-                        The result of the model comparison shows a trade-off between the two metrics:
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>PSNR (Peak Signal-to-Noise Ratio):</strong> measures the mathematical calculation of pixel values. The higher PSNR means the reconstructed image is closer to the original in terms of raw pixel similarity.
-                            <br>
-                            <strong> The MSE-trained model </strong>won on PSMR, as expected. This model was more optimized to minimize the exact mathematical error that PSNR is based on.
-                        </li>
-                    </ul>
-                    <br>
-                    <ul>
-                        <li>
-                            <strong>SSIM (Structural Similarity Index):</strong> evaluates perceived visual quality by comparing textures, structure, and contrast. The better SSIM indicates the image looks more natural and true to human vision.
-                            <br>
-                            <strong> The L1-trained model </strong>won on SSIM, as expected. This model performs a better job at recreating the sharp structures, edges, and textures that a human eye perceives as a high-quality image.
-                        </li>
-                    </ul>
-                </div>
-            </section>
+        <figure class="wide reveal">
+            <img src="../images/dog.jpg" alt="Dog image: low-resolution, L1 model, MSE model, and ground truth">
+            <img src="../images/tigers.jpg" alt="Tiger image: low-resolution, L1 model, MSE model, and ground truth">
+            <figcaption>Left to right: low-resolution input, L1-trained output, MSE-trained output, and ground truth.</figcaption>
+        </figure>
 
-            <!-- Model Architecture -->
-            <section class="project-section">
-                <h2 class="project-section-title">Model Architecture</h2>
-                <div class="project-section-content">
-                    <ul class="architecture-list">
-                        <li>
-                            <span class="architecture-title">Initial Feature Extraction:</span>
-                            <span class="architecture-description">a single convolutional layer reads the input image and extracts its initial low-level features.</span>
-                        </li>
-                        <li>
-                            <span class="architecture-title">Deep Feature Learning:</span>
-                            <span class="architecture-description">A series of 8 residual blocks. Using residual connections enhance the performance, as it allows the network to go very deep to learn complex features without suffering from the vanishing gradient problem.</span>
-                        </li>
-                        <li>
-                            <span class="architecture-title">Efficient Upsampling:</span>
-                            <span class="architecture-description">Instead of using a traditional transposed convolution, nn.PixelShuffle layer was used. This layer first increases the number of channels and then intelligently shuffles them into the spatial dimensions, resulting in a clean, high-quality upscale.</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+        <section class="reveal">
+            <h2><span class="label">01</span>Results</h2>
+            <p>I evaluated the models with two metrics: PSNR, which measures pixel-level mathematical accuracy, and SSIM, which measures perceived structural similarity (closer to how a human sees an image). The comparison shows a trade-off between them.</p>
+            <figure>
+                <img src="../images/psnr_ssim_comparison.png" alt="Bar charts comparing PSNR and SSIM for L1 and MSE models" loading="lazy">
+            </figure>
+            <ul class="bullets">
+                <li><strong>PSNR (Peak Signal-to-Noise Ratio)</strong> compares raw pixel values; higher means the reconstruction is numerically closer to the original. The MSE-trained model won on PSNR, as expected, since it directly minimizes the error PSNR is based on.</li>
+                <li><strong>SSIM (Structural Similarity Index)</strong> compares texture, structure, and contrast; higher means the image looks more natural to the eye. The L1-trained model won on SSIM, recreating the sharp edges and textures people perceive as high quality.</li>
+            </ul>
+        </section>
 
-            <!-- Training Process -->
-            <section class="project-section">
-                <h2 class="project-section-title">Training Process</h2>
+        <section class="reveal">
+            <h2><span class="label">02</span>Model architecture</h2>
+            <dl class="spec">
+                <div class="spec-row"><dt>Feature extraction</dt><dd>A single convolutional layer reads the input image and extracts its initial low-level features.</dd></div>
+                <div class="spec-row"><dt>Deep feature learning</dt><dd>A series of 8 residual blocks. Residual connections let the network go deep enough to learn complex features without suffering from vanishing gradients.</dd></div>
+                <div class="spec-row"><dt>Upsampling</dt><dd>Instead of a transposed convolution, an <code>nn.PixelShuffle</code> layer first increases the number of channels and then rearranges them into the spatial dimensions, giving a clean, high-quality upscale.</dd></div>
+            </dl>
+        </section>
 
-                <!-- Training Details (Optional - can be removed or modified) -->
-                <div class="training-details">
-                    <h3 class="details-title">Training Configuration</h3>
-                    <div class="project-features">
-                        <div class="feature-item">
-                            <h3>Dataset</h3>
-                            <p>Trained on a large dataset of high-resolution images with various downsampling factors.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Optimizer</h3>
-                            <p>Used Adam optimizer with learning rate scheduling for stable convergence.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Batch Size</h3>
-                            <p>Optimized batch size for memory efficiency while maintaining training stability.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Training Epochs</h3>
-                            <p>Trained for multiple epochs with early stopping to prevent overfitting.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="project-section-content">
-                <h3 class="details-title">Training Process</h3>
-            
-                <div class="training-discussion">
-                    <h4 class="discussion-title">Choosing L1 Loss</h4>
-                    <div class="discussion-content">
-                        <p>
-                            A key decision was the choice of loss function. While the common MSE (L2) Loss is easy to optimize, it heavily penalizes large errors, which forces the model to learn a safe blurry average.
-                        </p>
-                        <p>
-                            I hypothesized that <strong>L1 Loss (Mean Absolute Error)</strong> would serve a better performance. L1 is less sensitive to outliers and is known to encourage the preservation of sharp details and realistic textures, the goal of super-resolution.
-                        </p>
-                    </div>
-                </div>
-            
-                <div class="training-curves">
-                    <h4 class="discussion-title">Training</h4>
-                    <img src="../images/training_curves_comparison.png" alt="Training Curves Comparison" class="training-comparison-image">
-                    <p class="image-caption">
-                        The training and validation loss curves (for both L1 and MSE) confirm the models are healthy. The loss consistently decreases (convergence) and the small gap between the train (blue/orange) and val (green/red) lines shows that the models are <strong>not overfitting</strong>.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="project-section-content">
-                <h3 class="details-title">Proof of the Hypothesis</h3>
-                <p>
-                    The loss curves show the models learned, but they don't prove which model is better. To achieve this, I evaluated both the L1-trained model and a MSE model against the entire test set using two metrics.
-                </p>
-            
-                <div class="evaluation-metrics">
-                    <h4 class="discussion-title">PSNR vs SSIM</h4>
-                    <table class="metrics-table">
-                        <thead>
-                            <tr>
-                                <th>Evaluation Metric</th>
-                                <th>L1-Optimized Model</th>
-                                <th>MSE-Optimized Model</th>
-                                <th>Winner</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>PSNR (dB) ↑</strong> <br/> (Measures mathematical accuracy)</td>
-                                <td>29.96</td>
-                                <td><strong>30.51</strong></td>
-                                <td>MSE Model</td>
-                            </tr>
-                            <tr>
-                                <td><strong>SSIM ↑</strong> <br/> (Measures perceived structural quality)</td>
-                                <td><strong>0.8307</strong></td>
-                                <td>0.8282</td>
-                                <td><strong>L1 Model</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="discussion-content">
-                        <p>
-                            The MSE-trained model won on PSNR, which was expected as PSNR is an MSE-based metric.
-                        </p>
-                        <p>
-                            However, <strong>L1-trained model won on SSIM</strong> (Structural Similarity Index). This proves that the L1-trained model does a superior job at the goal: recreating the sharp structures and details that a human eye perceives as a high-quality image.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            </section>
+        <section class="reveal">
+            <h2><span class="label">03</span>Training</h2>
+            <dl class="spec">
+                <div class="spec-row"><dt>Dataset</dt><dd>A large dataset of high-resolution images with various downsampling factors.</dd></div>
+                <div class="spec-row"><dt>Optimizer</dt><dd>Adam with learning-rate scheduling for stable convergence.</dd></div>
+                <div class="spec-row"><dt>Batch size</dt><dd>Chosen for memory efficiency while keeping training stable.</dd></div>
+                <div class="spec-row"><dt>Precision</dt><dd>bfloat16 (BF16) automatic mixed precision.</dd></div>
+                <div class="spec-row"><dt>Epochs</dt><dd>Multiple epochs with early stopping to prevent overfitting.</dd></div>
+            </dl>
 
-            <!-- Tech Stack -->
-            <!-- <section class="project-section">
-                <h2 class="project-section-title">Tech Stack</h2>
-                <div class="tech-stack">
-                    <div class="tech-category">
-                        <h3>Machine Learning</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag">CNN</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                    <div class="tech-category">
-                        <h3></h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag">NLTK</span>
-                            <span class="tech-tag">spaCy</span>
-                            <span class="tech-tag">Transformers</span>
-                            <span class="tech-tag">TextBlob</span>
-                        </div>
-                    </div> -->
-                    <!-- <div class="tech-category">
-                        <h3>Backend</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">REST API</span>
-                            <span class="tech-tag">SQLite</span>
-                        </div>
-                    </div> -->
-                    <!-- <div class="tech-category">
-                        <h3>Frontend</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Chart.js</span>
-                        </div>
-                    </div> -->
-                </div>
-            </section>
+            <h3>Choosing L1 loss</h3>
+            <p>A key decision was the loss function. The common MSE (L2) loss is easy to optimize, but it heavily penalizes large errors, which pushes the model toward a safe, blurry average.</p>
+            <p>I hypothesized that <strong>L1 loss (mean absolute error)</strong> would perform better. L1 is less sensitive to outliers and is known to preserve sharp details and realistic textures, which is the whole goal of super-resolution.</p>
 
-            <!-- Results/Impact -->
-            <section class="project-section">
-                <h2 class="project-section-title">Future Applications</h2>
-                <div class="project-section-content">
-                    <p>
-                        This project's findings have direct implications for critical fields like medical imaging. In a diagnostic setting, a model that produces a blurry, <strong>mathematically safe average (high PSNR)</strong> is dangerous.
-                    </p>
-                    <p>
-                        It could smooth over the very details that are critical for a diagnosis. This project provides a quantitative evidence that optimizing for L1/SSIM is the correct approach, such as a hairline fracture or the sharp boundary of a small tumor. This work validates a clear path for developing more reliable and perceptually-accurate models for healthcare.
-                    </p>
-                </div>
-            </section>
+            <figure>
+                <img src="../images/training_curves_comparison.png" alt="Training and validation loss curves for L1 and MSE models" loading="lazy">
+                <figcaption>Training and validation loss for both models decrease steadily, and the small train&ndash;validation gap shows neither model is overfitting.</figcaption>
+            </figure>
+        </section>
 
-            <!-- Project Links -->
-            <section class="project-links-section">
-                <h2 class="project-section-title">Project Links</h2>
-                <div class="project-external-links">
-                    <p>Project is still in improvement. Please check back soon for updates.</p>
-                    <!-- <a href="https://github.com/yourusername/nlp-sentiment-analyzer" class="btn" target="_blank" rel="noopener noreferrer">
-                        View on GitHub
-                    </a>
-                    <a href="#" class="btn-secondary" target="_blank" rel="noopener noreferrer">
-                        Live Demo
-                    </a> -->
-                </div>
-            </section>
+        <section class="reveal">
+            <h2><span class="label">04</span>Testing the hypothesis</h2>
+            <p>The loss curves show that both models learned, but not which one is better. To find out, I evaluated the L1-trained and MSE-trained models on the full test set.</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Metric</th><th>L1 model</th><th>MSE model</th><th>Winner</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PSNR (dB) &uarr;<small>Mathematical accuracy</small></td>
+                        <td>29.96</td>
+                        <td class="best">30.51</td>
+                        <td>MSE</td>
+                    </tr>
+                    <tr>
+                        <td>SSIM &uarr;<small>Perceived structural quality</small></td>
+                        <td class="best">0.8307</td>
+                        <td>0.8282</td>
+                        <td>L1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The MSE model won on PSNR, as expected for an MSE-based metric. The <strong>L1 model won on SSIM</strong>, showing that it does a better job at the actual goal: recreating the sharp structures and details a human eye perceives as high quality.</p>
+        </section>
 
-        </article>
+        <section class="reveal">
+            <h2><span class="label">05</span>Why it matters for medicine</h2>
+            <p>These findings matter for fields like medical imaging. In a diagnostic setting, a model that produces a blurry, <strong>mathematically safe average (high PSNR)</strong> can be dangerous: it may smooth over exactly the details a diagnosis depends on, such as a hairline fracture or the sharp boundary of a small tumor.</p>
+            <p>This project offers quantitative evidence for optimizing toward L1/SSIM in those settings, and points toward more reliable, perceptually accurate models for healthcare.</p>
+        </section>
+
+        <section class="reveal">
+            <h2><span class="label">06</span>Status</h2>
+            <p class="note">This project is still being improved. Code will be linked here soon.</p>
+        </section>
+
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Chan Um. Built with HTML, CSS, and JS.</p>
+        <div class="wrap">
+            <span>&copy; 2026 CHAN UM</span>
+            <a href="../index.html#projects">&larr; ALL PROJECTS</a>
         </div>
     </footer>
 
     <script src="../script.js"></script>
 </body>
 </html>
-

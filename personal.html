@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chan Um - Personal</title>
+    <title>Personal | Chan Um</title>
+    <meta name="description" content="Life outside the lab: travel, coffee, badminton, and photos.">
+    <meta name="theme-color" content="#0a0c11">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -13,92 +17,104 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-logo">Chan_Um.Portfolio</a>
-            <ul class="nav-menu">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+    <nav class="nav">
+        <div class="wrap">
+            <a href="index.html" class="nav-name">Chan Um</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="index.html#research">Research</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="personal.html" class="active">Personal</a></li>
+                <li><a href="resume.html">CV</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero-simple">
-        <div class="container">
-            <h1 class="hero-title-simple">Beyond the Code</h1>
-            <p class="hero-subtitle">A little about my life outside of studying and research.</p>
+    <header class="page-hero">
+        <canvas class="sky" data-density="9000" aria-hidden="true"></canvas>
+        <div class="wrap">
+            <span class="label">Personal</span>
+            <h1>Beyond the lab</h1>
+            <p class="sub">A little about my life outside of studying and research.</p>
         </div>
     </header>
 
-    <main class="container">
-
-        <section id="personal-about" class="portfolio-section visible">
-            <h2>Who I Am</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        While I'm deeply passionate about Machine Learning, I also believe in a balanced life. When I'm not in front of a computer, I'm probably brewing coffee, playing badminton, or traveling around the world.
-                    </p>
-                    <p>
-                        This space is my personal blog and gallery where I share my thoughts, experiences, and things I create that aren't code.
-                    </p>
-                    <img src="images/trip1.JPG" alt="My Trip to Grand Canyon" class="personal-image">
-                    <p class="image-caption">Trip to Grand Canyon(it was so cold even in August!)</p>
+    <main>
+        <section class="block" style="border-top:0">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="label">01</span>
+                    <h2>Who I am</h2>
+                </div>
+                <div class="about reveal">
+                    <div></div>
+                    <div class="prose">
+                        <p>While I'm deeply passionate about machine learning, I also believe in a balanced life. When I'm not in front of a computer, I'm probably brewing coffee, playing badminton, or traveling around the world.</p>
+                        <p>This page is where I share moments and things I make that aren't code.</p>
+                        <figure class="feature-photo">
+                            <img src="images/trip1.JPG" alt="Chan at the Grand Canyon" data-lightbox="true" data-title="Grand Canyon" data-description="It was so cold, even in August!" loading="lazy" style="cursor:zoom-in">
+                            <figcaption>The Grand Canyon. It was so cold, even in August!</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="blog-posts" class="portfolio-section visible">
-            <h2>Latest Musings</h2>
-            <div class="blog-grid">
-                
-                <div class="blog-card">
-                    <img src="https://via.placeholder.com/600x400.png?text=My+Hobby+Image" alt="Blog post image">
-                    <div class="blog-info">
-                        <span class="blog-date">January 11, 2026</span>
-                        <h3>To be updated....</h3>
-                        <p>To be updated....</p>
-                        </div>
+        <section class="block">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="label">02</span>
+                    <h2>Photo log</h2>
+                    <p>A collection of moments from recent years.</p>
                 </div>
-        </section>
-
-        <section id="gallery" class="portfolio-section visible">
-            <h2>Photo Gallery</h2>
-            <p style="text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
-                A collection of moments from my recent experiences.
-            </p>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/trip_to_stone_mount.JPG" alt="A photo from my travels">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/food.JPG" alt="Food">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/cat.JPG" alt="Cat">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/tokyo_2023.JPG" alt="tokyo 2023">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/military.JPEG" alt="Military">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/me_child.jpg" alt="Me as a child">
+                <div class="gallery reveal">
+                    <figure>
+                        <img src="images/trip_to_stone_mount.JPG" alt="Stone Mountain" data-lightbox="true" data-title="Stone Mountain" loading="lazy">
+                        <figcaption>Stone Mountain</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/tokyo_2023.JPG" alt="Tokyo, 2023" data-lightbox="true" data-title="Tokyo, 2023" loading="lazy">
+                        <figcaption>Tokyo &middot; 2023</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/food.JPG" alt="A meal" data-lightbox="true" data-title="Food" loading="lazy">
+                        <figcaption>Food</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/cat.JPG" alt="A cat" data-lightbox="true" data-title="Cat" loading="lazy">
+                        <figcaption>Cat</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/military.JPEG" alt="Military service in the Republic of Korea Army" data-lightbox="true" data-title="Republic of Korea Army" loading="lazy">
+                        <figcaption>ROK Army &middot; 2021&ndash;2023</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/me_child.jpg" alt="Chan as a child" data-lightbox="true" data-title="Where it started" loading="lazy">
+                        <figcaption>Where it started</figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
-
     </main>
 
+    <div id="image-lightbox" class="lightbox-modal">
+        <span class="lightbox-close" aria-label="Close">&times;</span>
+        <div class="lightbox-content-wrapper">
+            <div class="lightbox-title" id="lightbox-title"></div>
+            <img class="lightbox-content" id="lightbox-image" alt="">
+            <div class="lightbox-description" id="lightbox-description"></div>
+        </div>
+    </div>
+
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Chan Um. Built with HTML, CSS, and JS.</p>
+        <div class="wrap">
+            <span>&copy; 2026 CHAN UM</span>
+            <span>BALTIMORE, MD</span>
         </div>
     </footer>
 
-    </body>
+    <script src="script.js"></script>
+    <script src="script-lightbox.js"></script>
+</body>
 </html>

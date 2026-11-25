@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let imageDescription = image.getAttribute('data-description');
             if (!imageDescription) {
                 // Try to find the description in the next sibling <p> tag
-                const featureItem = image.closest('.feature-item');
+                const featureItem = image.closest('.feature, .feature-item');
                 if (featureItem) {
                     const descriptionElement = featureItem.querySelector('p');
                     if (descriptionElement) {

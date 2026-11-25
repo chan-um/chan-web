@@ -1,102 +1,103 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
-    // --- New Typing Effect Script ---
-    const typingTarget = document.getElementById('typing-target');
-    const phrases = [
-        "Machine Learning",
-        "Data-Driven Solutions",
-        "Full-Stack Development",
-        "Drug Discovery"
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typeSpeed = 100;
-    const deleteSpeed = 50;
-    const delay = 2000;
+document.documentElement.classList.add('js');
 
-    function type() {
-        const currentPhrase = phrases[phraseIndex];
-        
-        if (isDeleting) {
-            // Deleting
-            typingTarget.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(type, typeSpeed);
-            } else {
-                setTimeout(type, deleteSpeed);
-            }
-        } else {
-            // Typing
-            typingTarget.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === currentPhrase.length) {
-                isDeleting = true;
-                setTimeout(type, delay);
-            } else {
-                setTimeout(type, typeSpeed);
+document.addEventListener('DOMContentLoaded', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- Starfield: sparse, mostly still; a few stars twinkle ---------- */
+    document.querySelectorAll('canvas.sky').forEach((canvas) => {
+        const ctx = canvas.getContext('2d');
+        const density = Number(canvas.dataset.density || 6500); // px² per star
+        let stars = [], w = 0, h = 0;
+
+        function seed() {
+            const dpr = window.devicePixelRatio || 1;
+            w = canvas.clientWidth; h = canvas.clientHeight;
+            canvas.width = w * dpr; canvas.height = h * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const count = Math.round((w * h) / density);
+            stars = Array.from({ length: count }, () => ({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() < 0.94 ? Math.random() * 0.8 + 0.2 : Math.random() * 1.1 + 0.9,
+                a: Math.random() * 0.55 + 0.15,
+                twinkle: Math.random() < 0.12,
+                phase: Math.random() * Math.PI * 2,
+                warm: Math.random() < 0.15
+            }));
+        }
+
+        function draw(t) {
+            ctx.clearRect(0, 0, w, h);
+            for (const s of stars) {
+                const a = s.twinkle && !reduceMotion ? s.a * (0.6 + 0.4 * Math.sin(t / 1400 + s.phase)) : s.a;
+                ctx.fillStyle = s.warm ? `rgba(216,183,121,${a})` : `rgba(233,229,219,${a})`;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
+
+        let visible = true;
+        function loop(t) {
+            if (visible) draw(t);
+            if (!reduceMotion) requestAnimationFrame(loop);
+        }
+
+        // Pause drawing when the hero is scrolled out of view.
+        new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(canvas);
+
+        seed();
+        requestAnimationFrame(loop);
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => { seed(); draw(performance.now()); }, 150);
+        });
+    });
+
+    /* ---------- Mobile menu ---------- */
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (nav && toggle) {
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(open));
+        });
+        nav.querySelectorAll('.nav-links a').forEach((a) =>
+            a.addEventListener('click', () => {
+                nav.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            })
+        );
     }
-    
-    // Start the typing effect
-    setTimeout(type, 500);
 
+    /* ---------- Reveal sections on scroll ---------- */
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach((el) => io.observe(el));
+    } else {
+        reveals.forEach((el) => el.classList.add('visible'));
+    }
 
-    // --- Intersection Observer for Fade-in/Slide-up Effect ---
-    // This is the "fancy" part. It watches for elements and adds
-    // a 'visible' class when they scroll into view.
-
-    const sections = document.querySelectorAll('.portfolio-section');
-
-    const options = {
-        root: null, // observes intersections relative to the viewport
-        rootMargin: '0px',
-        threshold: 0.15 // 15% of the element must be visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once it's visible
-            }
-        });
-    }, options);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-
-    // --- Active Nav Link Highlighting on Scroll ---
-    // This highlights the nav link corresponding to the section
-    // currently in view.
-    
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    const allSections = document.querySelectorAll('section[id], header[id]');
-
-    window.addEventListener('scroll', () => {
-        let current = 'home'; // Default to home
-
-        allSections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            // A small offset to make the highlight trigger a bit earlier
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
-
+    /* ---------- Highlight current section in the nav (home page) ---------- */
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const links = [...document.querySelectorAll('.nav-links a')];
+    if (sections.length) {
+        const onScroll = () => {
+            let current = '';
+            const y = window.scrollY + window.innerHeight * 0.35;
+            sections.forEach((s) => { if (s.offsetTop <= y) current = s.id; });
+            links.forEach((a) => a.classList.toggle('active', a.getAttribute('href').split('#')[1] === current));
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
 });

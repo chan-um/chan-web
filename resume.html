@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chan Um - Resume</title>
+    <title>CV | Chan Um</title>
+    <meta name="description" content="Curriculum vitae of Chan Um, M.S.E. student in Biomedical Engineering at Johns Hopkins University.">
+    <meta name="theme-color" content="#0a0c11">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -13,44 +17,48 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-logo">Chan_Um.Portfolio</a>
-            <ul class="nav-menu">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+    <nav class="nav">
+        <div class="wrap">
+            <a href="index.html" class="nav-name">Chan Um</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="index.html#research">Research</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="personal.html">Personal</a></li>
+                <li><a href="resume.html" class="active">CV</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero-simple">
-        <div class="container">
-            <h1 class="hero-title-simple">My Resume</h1>
-            <p class="hero-subtitle">
-                Feel free to download a copy using the button below.
-            </p>
-            <a href="resume.pdf" class="btn" download="resume.pdf" style="margin-top: 1rem;">
-                Download PDF
-            </a>
+    <header class="page-hero">
+        <canvas class="sky" data-density="9000" aria-hidden="true"></canvas>
+        <div class="wrap">
+            <span class="label">Curriculum Vitae</span>
+            <h1>CV</h1>
+            <p class="sub">Education, research, projects, and experience in one place.</p>
+            <div class="actions">
+                <a href="resume.pdf" class="button primary" download="Chan_Um_Resume.pdf">Download PDF</a>
+                <a href="resume.pdf" class="button" target="_blank" rel="noopener">Open in new tab</a>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="portfolio-section visible" style="padding: 3rem 20px;">
-            <div class="resume-viewer-container">
-                <iframe src="chan_um_resume.pdf" class="resume-iframe" title="Chan Um Resume PDF"></iframe>
+        <section class="block" style="border-top:0; padding-top:64px">
+            <div class="wrap">
+                <iframe src="resume.pdf" class="cv-frame" title="Chan Um CV (PDF)"></iframe>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Chan Um. Built with HTML, CSS, and JS.</p>
+        <div class="wrap">
+            <span>&copy; 2026 CHAN UM</span>
+            <span>BALTIMORE, MD</span>
         </div>
     </footer>
-    
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chan Um</title>
+    <title>Chan Um | Biomedical Engineering @ Johns Hopkins</title>
+    <meta name="description" content="Chan Um is an M.S.E. student in Biomedical Engineering at Johns Hopkins University working on AI in medicine and computational medicine.">
+    <meta name="theme-color" content="#0a0c11">
+    <meta property="og:title" content="Chan Um | Biomedical Engineering @ Johns Hopkins">
+    <meta property="og:description" content="M.S.E. student in Biomedical Engineering at Johns Hopkins. Research in clinical dashboards, drug screening analysis, and patient trust in medical AI.">
+    <meta property="og:url" content="https://www.chanum.dev/">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -13,183 +21,267 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#home" class="nav-logo">Chan_Um.Portfolio</a>
-            <ul class="nav-menu">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+    <nav class="nav">
+        <div class="wrap">
+            <a href="#top" class="nav-name">Chan Um</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="index.html#research">Research</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="personal.html">Personal</a></li>
+                <li><a href="resume.html">CV</a></li>
             </ul>
         </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div id="particles-js"></div> <div class="container">
-            <h1 class="hero-title">
-                Hi, I'm Chan Um
-            </h1>
-            <p class="hero-subtitle">
-                A Computer Science student specializing in
-                <span id="typing-target" class="highlight"></span>
-            </p>
-            <a href="#projects" class="btn">View My Work</a>
+    <header class="hero" id="top">
+        <canvas class="sky" aria-hidden="true"></canvas>
+        <svg class="graticule" aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 900">
+            <g fill="none" stroke="rgba(233,229,219,0.05)">
+                <circle cx="1180" cy="430" r="260"/>
+                <circle cx="1180" cy="430" r="420"/>
+                <circle cx="1180" cy="430" r="600"/>
+                <circle cx="1180" cy="430" r="820"/>
+                <line x1="1180" y1="0" x2="1180" y2="900"/>
+                <line x1="0" y1="430" x2="1440" y2="430" stroke-dasharray="2 6"/>
+            </g>
+        </svg>
+
+        <div class="wrap">
+            <div>
+                <p class="label">M.S.E. Biomedical Engineering &middot; Johns Hopkins</p>
+                <h1>Chan Um</h1>
+                <p class="lede">I work on AI in medicine: analyzing large-scale drug screens, building clinical dashboards, and studying how clinicians and patients come to trust AI.</p>
+                <div class="actions">
+                    <a href="#research" class="button primary">View research</a>
+                    <a href="chan_um_resume.pdf" class="button" download="Chan_Um_CV.pdf">Download CV</a>
+                </div>
+            </div>
+
+            <svg class="constellation" viewBox="0 0 440 400" role="img" aria-label="Research areas: Clinical AI, Drug Screening, Human Factors, Machine Learning, Trust and Safety, Bioinformatics">
+                <g>
+                    <line class="edge" x1="90"  y1="80"  x2="250" y2="150"/>
+                    <line class="edge" x1="250" y1="150" x2="380" y2="90"/>
+                    <line class="edge" x1="250" y1="150" x2="220" y2="290"/>
+                    <line class="edge" x1="220" y1="290" x2="70"  y2="320"/>
+                    <line class="edge" x1="220" y1="290" x2="360" y2="340"/>
+                </g>
+                <g>
+                    <circle class="halo" cx="250" cy="150" r="14"/><circle class="star" cx="250" cy="150" r="3.6"/>
+                    <circle class="star" cx="90"  cy="80"  r="2.4"/>
+                    <circle class="star" cx="380" cy="90"  r="2.8"/>
+                    <circle class="halo" cx="220" cy="290" r="11"/><circle class="star" cx="220" cy="290" r="3.1"/>
+                    <circle class="star" cx="70"  cy="320" r="2.4"/>
+                    <circle class="star" cx="360" cy="340" r="2.6"/>
+                </g>
+                <text x="268" y="146">Clinical AI</text>
+                <text x="58"  y="64">Drug Screening</text>
+                <text x="300" y="74">Human Factors</text>
+                <text x="238" y="296">Machine Learning</text>
+                <text x="30"  y="346">Trust &amp; Safety</text>
+                <text x="300" y="366">Bioinformatics</text>
+                <text class="fig" x="0" y="398">Fig. 1 &mdash; areas of work</text>
+            </svg>
         </div>
-        <a href="#about" class="scroll-down">
-            <span></span>
-        </a>
+
+        <div class="coords">
+            <div class="wrap">
+                <span>39.2904&deg; N &nbsp;76.6122&deg; W &middot; BALTIMORE</span>
+                <a href="#research">SCROLL &darr;</a>
+            </div>
+        </div>
     </header>
 
-    <main class="container">
+    <main>
 
-        <section id="about" class="portfolio-section">
-            <h2>About Me</h2>
-            <div class="about-content">
-                    <div class="about-image">
-                        <img src="/images/profile0.JPG" alt="Your Formal Picture">
+        <!-- ===== Research ===== -->
+        <section class="block" id="research">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="label">01</span>
+                    <h2>Research</h2>
+                    <p>Work across clinical human factors, computational drug screening, and patient trust in medical AI.</p>
                 </div>
-                <div class="about-text">
-                    <p>
-                        Hello! I'm a first-year master's student at Johns Hopkins University in Biomedical Engineering. 
-                    </p>
-                    <h3>My Goals</h3>
-                    <p>
-                        My goal is to pursue a career in healthcare technology, where I can leverage my skills in machine learning into healthcare applications.
-                    </p>
-                    <h3>My Interests</h3>
-                    <p>
-                        I am particularly interested in post-Clinical AI deployment, ...
-                    </p>
+
+                <article class="entry reveal">
+                    <div class="entry-meta"><span class="id">R-04</span>Sep 2026 &ndash; Present</div>
+                    <div>
+                        <h3>Pediatric Ventilator Dashboard</h3>
+                        <p class="org">Graduate Researcher &middot; Center for Health Care Human Factors, Johns Hopkins University</p>
+                        <p class="desc">Contributing to a prototype dashboard that brings ventilator waveforms and patient information into one view. I map each dashboard component to its clinical data sources, document requirements for future ventilator and EHR integration, and refine the display through clinician feedback sessions.</p>
+                        <div class="tags"><span>Human Factors</span><span>Clinical Dashboards</span><span>EHR Integration</span></div>
+                    </div>
+                </article>
+
+                <article class="entry reveal">
+                    <div class="entry-meta"><span class="id">R-03</span>May 2025 &ndash; Present</div>
+                    <div>
+                        <h3>Computational Drug Screening in Triple-Negative Breast Cancer</h3>
+                        <p class="org">Student Researcher &middot; Ahn Lab</p>
+                        <p class="desc">Built a screening workflow on DepMap PRISM data covering 1,477 compounds across TNBC cell lines, using CurveCurator for dose&ndash;response modeling and quality control and ranking candidates by AUC, pEC50, and pIC50. I also analyze cancer organoid movement under drug treatment and visualize the cellular responses.</p>
+                        <div class="tags"><span>DepMap PRISM</span><span>CurveCurator</span><span>Dose&ndash;Response</span><span>Python</span></div>
+                    </div>
+                </article>
+
+                <article class="entry reveal">
+                    <div class="entry-meta"><span class="id">R-02</span>Jan 2026 &ndash; May 2026</div>
+                    <div>
+                        <h3>Patient&ndash;LLM Trust Calibration</h3>
+                        <p class="org">Student Researcher &amp; Interface Developer &middot; Purdue University</p>
+                        <p class="desc">Co-designed a between-subjects study on how conversational tone and source framing affect patient trust, and built the simulated clinical assistant interface that presents controlled differential diagnosis scripts for acute respiratory conditions.</p>
+                        <div class="tags"><span>LLMs</span><span>User Study</span><span>Interface Design</span></div>
+                    </div>
+                </article>
+
+                <article class="entry reveal">
+                    <div class="entry-meta"><span class="id">R-01</span>Mar 2025 &ndash; May 2026</div>
+                    <div>
+                        <h3>Protein Function Prediction Tools</h3>
+                        <p class="org">Undergraduate Researcher &middot; Kihara Lab, Purdue University</p>
+                        <p class="desc">Updated the software infrastructure behind the lab's protein function prediction tools (PFP, Phylo-PFP, ESG) and developed a Flask backend and React frontend to make them easier for researchers to access.</p>
+                        <div class="tags"><span>Bioinformatics</span><span>Flask</span><span>React</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== Projects ===== -->
+        <section class="block" id="projects">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="label">02</span>
+                    <h2>Projects</h2>
+                    <p>Independent builds in machine learning, full-stack development, and systems programming.</p>
+                </div>
+
+                <div class="project-grid">
+                    <a href="projects/super-resolution-image.html" class="project-card reveal">
+                        <div class="thumb"><img src="images/super_res_thumbnail.png" alt="Low-resolution and super-resolved images side by side" loading="lazy"></div>
+                        <div class="body">
+                            <span class="label">P-04 &middot; Oct 2025</span>
+                            <h3>Super-Resolution Image Upscaler</h3>
+                            <p>An SRResNet built from scratch in PyTorch for 2&times; upscaling, comparing L1 and MSE training objectives on PSNR and SSIM.</p>
+                            <div class="tags"><span>PyTorch</span><span>Computer Vision</span><span>SRResNet</span></div>
+                            <span class="more">Read case study &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="projects/lab-exp-tracker.html" class="project-card reveal">
+                        <div class="thumb"><img src="images/lab-exp-tracker.png" alt="Lab Experiment Tracker dashboard" loading="lazy"></div>
+                        <div class="body">
+                            <span class="label">P-03 &middot; Nov 2025</span>
+                            <h3>Lab Experiment Tracker</h3>
+                            <p>A full-stack app that replaces scattered spreadsheets with one place to log experiments and datasets, built on a normalized SQLite schema.</p>
+                            <div class="tags"><span>React</span><span>Flask</span><span>SQLAlchemy</span><span>SQLite</span></div>
+                            <span class="more">Read case study &rarr;</span>
+                        </div>
+                    </a>
+
+                    <div class="project-card reveal">
+                        <div class="body">
+                            <span class="label">P-02 &middot; Nov 2025</span>
+                            <h3>Multi-Threaded HTTP Web Server</h3>
+                            <p>A concurrent HTTP server in C++ that serves multiple clients through a thread pool, with basic authentication and directory browsing built on low-level system calls.</p>
+                            <div class="tags"><span>C++</span><span>Systems Programming</span><span>Concurrency</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="body">
+                            <span class="label">P-01 &middot; Apr 2025</span>
+                            <h3>Optimal Pathfinding System</h3>
+                            <p>A route planner that finds paths under time and cost constraints, using Dijkstra's algorithm for shortest paths and Floyd&ndash;Warshall for all-pairs shortest paths.</p>
+                            <div class="tags"><span>C++</span><span>Algorithms</span><span>Graphs</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="portfolio-section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skill-pills">
-                        <span class="skill-pill">Python</span>
-                        <span class="skill-pill">Java</span>
-                        <span class="skill-pill">C++</span>
-                        <span class="skill-pill">SQL</span>
-                        <span class="skill-pill">JavaScript</span>
-                        <span class="skill-pill">R</span>
-                        <span class="skill-pill">PERL</span>
-                    </div>
+        <!-- ===== About ===== -->
+        <section class="block" id="about">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="label">03</span>
+                    <h2>About</h2>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>ML/Data Science</h3>
-                    <div class="skill-pills">
-                        <span class="skill-pill">PyTorch</span>
-                        <span class="skill-pill">Scikit-learn</span>
-                        <span class="skill-pill">Pandas</span>
-                        <span class="skill-pill">NumPy</span>
+
+                <div class="about reveal">
+                    <div></div>
+                    <div class="about-grid">
+                        <figure class="portrait-figure" style="margin:0">
+                            <div class="portrait"><img src="images/grad-photo.jpeg" alt="Portrait of Chan Um" loading="lazy"></div>
+                        </figure>
+                        <div class="prose">
+                            <p>I'm a first-year M.S.E. student in Biomedical Engineering at Johns Hopkins University, focusing on Computational Medicine and AI in Medicine. Before Hopkins, I earned my B.S. in Computer Science, with a concentration in Machine Intelligence, from Purdue University.</p>
+                            <h3>Goals</h3>
+                            <p>I want to build a career in healthcare technology, applying machine learning and software engineering to tools that clinicians and researchers actually use.</p>
+                            <h3>Interests</h3>
+                            <p>I'm particularly interested in what happens after clinical AI is deployed: monitoring how models perform and stay safe over time, and designing interfaces that help clinicians and patients calibrate their trust in AI recommendations.</p>
+                            <p><a href="personal.html" class="link-arrow">Beyond the lab &rarr;</a></p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-pills">
-                        <span class="skill-pill">Git & GitHub</span>
-                        <span class="skill-pill">GCP</span>
-                        <span class="skill-pill">SQLAlchemy</span>
-                        <span class="skill-pill">Flask</span>
-                        <span class="skill-pill">FastAPI</span>
-                        <span class="skill-pill">Node.js</span>
+                <h3 class="subhead reveal">Education</h3>
+                <article class="entry reveal">
+                    <div class="entry-meta">Jun 2026 &ndash; May 2028<br>(expected)</div>
+                    <div>
+                        <h3>Johns Hopkins University</h3>
+                        <p class="org">M.S.E. in Biomedical Engineering &middot; Baltimore, MD</p>
+                        <ul class="facts">
+                            <li><span>Focus &mdash;</span> Computational Medicine; AI in Medicine</li>
+                            <li><span>Coursework &mdash;</span> Precision Care Medicine, Translating Healthcare AI: Essential Concepts, Natural Language Processing</li>
+                        </ul>
                     </div>
+                </article>
+                <article class="entry reveal">
+                    <div class="entry-meta">2020 &ndash; 2026</div>
+                    <div>
+                        <h3>Purdue University</h3>
+                        <p class="org">B.S. in Computer Science &middot; West Lafayette, IN</p>
+                        <ul class="facts">
+                            <li><span>Concentration &mdash;</span> Machine Intelligence &nbsp;&middot;&nbsp; <span>Minor &mdash;</span> Mathematics</li>
+                            <li><span>Honors &mdash;</span> Dean's List (2023&ndash;2026)</li>
+                            <li><span>Coursework &mdash;</span> Data Structures &amp; Algorithms, Systems Programming, Machine Learning, Artificial Intelligence, Probability &amp; Statistics, Linear Algebra</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <h3 class="subhead reveal">Skills</h3>
+                <div class="skill-rows reveal">
+                    <div class="skill-row"><h3>Languages</h3><p>Python, C/C++, Java, JavaScript, SQL, R, MATLAB, HTML/CSS</p></div>
+                    <div class="skill-row"><h3>ML &amp; Data</h3><p>PyTorch, TensorFlow, scikit-learn, pandas, NumPy</p></div>
+                    <div class="skill-row"><h3>Web &amp; Backend</h3><p>Flask, FastAPI, React, SQLAlchemy</p></div>
+                    <div class="skill-row"><h3>Tools</h3><p>Git/GitHub, Docker, Linux/Unix, Jupyter</p></div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="portfolio-section">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-
-                <a href="projects/lab-exp-tracker.html" class="project-card">
-                    <div class="project-image">
-                        <img src="/images/lab-exp-tracker.png" alt="lab experiment tracker thumbnail">
-                    </div>
-                    <div class="project-info">
-                        <h3>Lab Experiment Tracker</h3>
-                        <p>A full-stack web application to centralize and streamline lab data, moving beyond inefficient spreadsheets.</p>
-                        <div class="project-tags">
-   
-                            <span class="tag">SQLAlchemy</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Tailwind CSS</span>
-                        </div>
-                        <div class="project-card-footer">
-                            <span class="project-view-link">View Project Details →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="projects/super-resolution-image.html" class="project-card">
-                    <div class="project-image">
-                        <img src="images/super_res_thumbnail.png" alt="Super-Resolution Image Upscaler Thumbnail">
-                    </div>
-                    <div class="project-info">
-                        <h3>Super-Resolution Image Upscaler</h3>
-                        <p> This project is an application of image restoration, where I built a Super-Resolution Residual Network (SRResNet) from scratch using PyTorch.</p>
-                        <div class="project-tags">
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">CNN</span>
-                            <span class="tag">SRResNet</span>
-                        </div>
-                        <div class="project-card-footer">
-                            <span class="project-view-link">View Project Details →</span>
-                        </div>
-                    </div>
-                </a>
-                
-            </div>
-        </section>
-
-        <section id="education" class="portfolio-section">
-            <h2>Education</h2>
-            <div class="education-entry">
-                <h3>Johns Hopkins University</h3>
-                <p><strong>M.S.E. in Biomedical Engineering</strong></p>
-                <p><em>Expected Graduation: May 2028</em></p>
-                <p><strong>Relevant Coursework:</strong> Precision Care Medicine, Translating Helathcare AI: Essential Concepts, Natural Language Processing </p>
-            </div>
-            <div class="education-entry" style="margin-top: 1.5rem;">
-                <h3>Purdue University</h3>
-                <p><strong>B.S. in Computer Science</strong></p>
-                <p><em>Graduated: May 2026</em></p>
-                <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Introduction to AI, Machine Learning, Information Systems</p>
-            </div>
-        </section>
-
-        <section id="contact" class="portfolio-section fade-in">
-            <h2>Get In Touch</h2>
-            <p>I'm always open to discussing new projects, research opportunities, or just to chat. Feel free to reach out!</p>
-            <div class="contact-links">
-                <a href="mailto:cum2@jh.edu" class="btn">Email Me</a>
-                
-                <a href="resume.html" class="btn-secondary">Resume</a>
-                
-                <a href="https://www.linkedin.com/in/chanum/" class="btn-secondary">LinkedIn</a>
-                <a href="https://github.com/chan-um" class="btn-secondary">GitHub</a>
+        <!-- ===== Contact ===== -->
+        <section class="block contact" id="contact">
+            <div class="wrap reveal">
+                <span class="label" style="display:block;margin-bottom:24px">04 &middot; Contact</span>
+                <h2>Say hello at <a href="mailto:cum2@jh.edu">cum2@jh.edu</a></h2>
+                <p>I'm always open to talking about research opportunities, collaborations, or anything at the intersection of AI and medicine.</p>
+                <div class="actions">
+                    <a href="https://www.linkedin.com/in/chanum/" class="button" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/chan-um" class="button" target="_blank" rel="noopener">GitHub</a>
+                    <a href="resume.html" class="button">CV</a>
+                </div>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Chan Um. Built with HTML, CSS, and JS.</p>
+        <div class="wrap">
+            <span>&copy; 2026 CHAN UM</span>
+            <span>BALTIMORE, MD</span>
         </div>
     </footer>
 
-    <script src="particles.min.js"></script> <script src="script-particles.js"></script> <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
